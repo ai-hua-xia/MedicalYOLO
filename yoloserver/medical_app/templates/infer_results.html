@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inference Results</title>
+</head>
+<body>
+    <h1>Inference Results</h1>
+    {% for image in result_images %}
+        <img src="{{ image }}" alt="Result Image">
+    {% endfor %}
+</body>
+</html>

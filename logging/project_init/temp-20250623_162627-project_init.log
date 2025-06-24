@@ -1,0 +1,30 @@
+2025-06-23 16:26:27,877 - root - INFO - 开始初始化MedicalYOLO项目目录结构
+2025-06-23 16:26:27,877 - root - INFO - 项目根目录: /home/wyh_home/MedicalYOLO
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/configs
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/raw/images
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/raw/annotations
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/train/images
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/train/labels
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/val/images
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/val/labels
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/test/images
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/data/test/labels
+2025-06-23 16:26:27,877 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/logging/project_init
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/logging/data_conversion
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/logging/train
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/logging/val
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/logging/infer
+2025-06-23 16:26:27,878 - root - INFO - Created new directory: /home/wyh_home/MedicalYOLO/logging/performance_test
+2025-06-23 16:26:27,878 - root - INFO - Created new directory: /home/wyh_home/MedicalYOLO/logging/test_log
+2025-06-23 16:26:27,878 - root - INFO - Created new directory: /home/wyh_home/MedicalYOLO/logging/general
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/runs/detect
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/runs/val
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/runs/infer
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/models/pretrained
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/models/checkpoints
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/output
+2025-06-23 16:26:27,878 - root - INFO - Directory already exists: /home/wyh_home/MedicalYOLO/temp
+2025-06-23 16:26:27,878 - root - INFO - 目录创建完成 - 新建: 3, 已存在: 21
+2025-06-23 16:26:27,878 - root - INFO - 项目目录结构初始化完成
+2025-06-23 16:26:27,879 - root - INFO - 原始图像目录中的文件数量: 0
+2025-06-23 16:26:27,879 - root - INFO - 原始标注目录中的文件数量: 0

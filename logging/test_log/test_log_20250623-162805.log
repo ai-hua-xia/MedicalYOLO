@@ -1,0 +1,7 @@
+2025-06-23 16:28:05,321 - INFO - YOLO Default : 日志记录器已启动，日志文件保存在: /home/wyh_home/MedicalYOLO/logging/test_log/test_log_20250623-162805.log
+2025-06-23 16:28:05,321 - INFO - YOLO Default : 日志记录器的根目录: /home/wyh_home/MedicalYOLO/logging
+2025-06-23 16:28:05,321 - INFO - YOLO Default : 日志记录器的名称: YOLO Default
+2025-06-23 16:28:05,321 - INFO - YOLO Default : 日志记录器的类型: test_log
+2025-06-23 16:28:05,321 - INFO - YOLO Default : 日志记录器的级别: INFO
+2025-06-23 16:28:05,321 - INFO - YOLO Default : =========================日志记录器初始化成功=========================
+2025-06-23 16:28:05,321 - INFO - YOLO Default : 测试日志记录器

@@ -1,0 +1,123 @@
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : 日志记录器已启动，日志文件保存在: /home/wyh_home/MedicalYOLO/logging/performance_test/performance_test_20250623-162828.log
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : 日志记录器的根目录: /home/wyh_home/MedicalYOLO/logging
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : 日志记录器的名称: PerformanceTest
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : 日志记录器的类型: performance_test
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : 日志记录器的级别: INFO
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : =========================日志记录器初始化成功=========================
+2025-06-23 16:28:28,907 - INFO - PerformanceTest : 开始性能测试
+2025-06-23 16:28:28,911 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7098 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,011 - INFO - PerformanceTest : ⏱️ 函数 'slow_function' 执行时间: 100.0839 毫秒
+2025-06-23 16:28:29,012 - INFO - PerformanceTest : ⏱️ 手动测量函数 'math_operations' 执行 5 次, 总时间: 428.7760 微秒, 平均时间: 85.7552 微秒
+2025-06-23 16:28:29,021 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 9.1491 毫秒, 平均时间: 0.0915 毫秒
+2025-06-23 16:28:29,025 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7117 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,029 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7143 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,033 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7100 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,036 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7032 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,040 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7102 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,044 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7018 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,048 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6904 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,051 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6955 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,055 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7020 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,059 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7160 毫秒, 平均时间: 0.0372 毫秒
+2025-06-23 16:28:29,063 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7025 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,066 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7078 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,070 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7048 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,074 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7027 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,078 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7057 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,081 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7006 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,085 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7111 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,089 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7047 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,093 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6892 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,096 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6990 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,100 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7065 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,104 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7030 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,108 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6973 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,111 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7012 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,115 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7139 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,119 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7013 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,123 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7016 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,126 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6977 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,130 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7064 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,134 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7072 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,138 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6905 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,141 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7019 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,145 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7102 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,149 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7088 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,153 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6960 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,157 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7131 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,160 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7183 毫秒, 平均时间: 0.0372 毫秒
+2025-06-23 16:28:29,164 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6960 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,168 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6986 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,172 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7000 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,175 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7000 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,179 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6936 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,183 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7023 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,187 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7022 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,190 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6999 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,194 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6974 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,198 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6968 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,202 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7013 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,205 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7061 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,209 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6923 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,213 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7197 毫秒, 平均时间: 0.0372 毫秒
+2025-06-23 16:28:29,217 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6962 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,220 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7044 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,224 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7129 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,228 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6924 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,232 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6964 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,235 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7001 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,239 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7137 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,243 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7107 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,247 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7119 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,250 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6938 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,254 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7014 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,258 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7118 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,262 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6939 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,266 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7138 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,269 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7062 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,273 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7121 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,277 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6990 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,281 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7137 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,284 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7099 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,288 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7405 毫秒, 平均时间: 0.0374 毫秒
+2025-06-23 16:28:29,292 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6986 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,296 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6936 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,299 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6858 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,303 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7375 毫秒, 平均时间: 0.0374 毫秒
+2025-06-23 16:28:29,307 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7001 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,311 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7219 毫秒, 平均时间: 0.0372 毫秒
+2025-06-23 16:28:29,314 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6968 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,318 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6994 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,322 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7025 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,326 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7131 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,329 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7065 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,333 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7091 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,337 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6938 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,341 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6985 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,344 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7016 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,348 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6977 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,352 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7051 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,356 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6861 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,359 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6974 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,363 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7183 毫秒, 平均时间: 0.0372 毫秒
+2025-06-23 16:28:29,367 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7134 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,371 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6961 毫秒, 平均时间: 0.0370 毫秒
+2025-06-23 16:28:29,375 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6941 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,378 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.7125 毫秒, 平均时间: 0.0371 毫秒
+2025-06-23 16:28:29,382 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6928 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,386 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6903 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,390 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6923 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,393 - INFO - PerformanceTest : ⏱️ 函数 'fast_function(1000)' 执行 100 次, 总时间: 3.6877 毫秒, 平均时间: 0.0369 毫秒
+2025-06-23 16:28:29,393 - INFO - PerformanceTest : ⏱️ 手动测量函数 'fast_function' 执行 100 次, 总时间: 381.3222 毫秒, 平均时间: 3.8132 毫秒
+2025-06-23 16:28:29,398 - INFO - PerformanceTest : ⏱️ 手动测量函数 'math_operations' 执行 3 次, 总时间: 4.4025 毫秒, 平均时间: 1.4675 毫秒
+2025-06-23 16:28:29,498 - INFO - PerformanceTest : ⏱️ 函数 'slow_function' 执行时间: 100.0706 毫秒
+2025-06-23 16:28:29,598 - INFO - PerformanceTest : ⏱️ 函数 'slow_function' 执行时间: 100.0714 毫秒
+2025-06-23 16:28:29,598 - INFO - PerformanceTest : ⏱️ 手动测量函数 'slow_function' 执行 2 次, 总时间: 200.2516 毫秒, 平均时间: 100.1258 毫秒
+2025-06-23 16:28:29,598 - INFO - PerformanceTest : ============================================================
+2025-06-23 16:28:29,598 - INFO - PerformanceTest : 性能分析摘要 (按平均执行时间排序)
+2025-06-23 16:28:29,598 - INFO - PerformanceTest : ============================================================
+2025-06-23 16:28:29,598 - INFO - PerformanceTest :  1. 延时函数                           100.1258 毫秒   (重复2次)
+2025-06-23 16:28:29,598 - INFO - PerformanceTest :  2. 快速求和                             3.8132 毫秒   (重复100次)
+2025-06-23 16:28:29,598 - INFO - PerformanceTest :  3. 数学运算                             1.4675 毫秒   (重复3次)
+2025-06-23 16:28:29,599 - INFO - PerformanceTest : ============================================================
+2025-06-23 16:28:29,599 - INFO - PerformanceTest : 性能测试完成
