@@ -330,7 +330,7 @@ def main():
         )
         
         # 第二层：数据集划分
-        splitter = DatasetSplitter(train_ratio=0.7, val_ratio=0.1, test_ratio=0.1)
+        splitter = DatasetSplitter(train_ratio=0.8, val_ratio=0.1, test_ratio=0.1)
         
         config_path = splitter.split_dataset(
             labels_dir='data/temp_labels',
