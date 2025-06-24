@@ -1,0 +1,39 @@
+2025-06-24 14:23:18,271 - root - INFO - 🚀 开始初始化MedicalYOLO项目
+2025-06-24 14:23:18,271 - root - INFO - 📁 项目根目录: /home/wyh_home/MedicalYOLO
+2025-06-24 14:23:18,271 - root - INFO - 🔍 检查系统要求...
+2025-06-24 14:23:18,271 - root - INFO - Python版本: 3.12.11
+2025-06-24 14:23:18,272 - root - INFO - 可用磁盘空间: 3963 GB
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: configs
+2025-06-24 14:23:18,272 - root - INFO - 🆕 创建新目录: data/raw/images
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/raw/annotations
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/train/images
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/train/labels
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/val/images
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/val/labels
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/test/images
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: data/test/labels
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: logging/project_init
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: logging/data_conversion
+2025-06-24 14:23:18,272 - root - INFO - ✅ 目录已存在: logging/train
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: logging/val
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: logging/infer
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: logging/performance_test
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: logging/test_log
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: runs/detect
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: runs/val
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: runs/infer
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: models/pretrained
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: models/checkpoints
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: output
+2025-06-24 14:23:18,273 - root - INFO - ✅ 目录已存在: temp
+2025-06-24 14:23:18,273 - root - INFO - 📊 目录创建完成 - 新建: 1, 已存在: 22, 问题: 0
+2025-06-24 14:23:18,273 - root - INFO - 📝 训练配置文件已存在: configs/train_config.yaml
+2025-06-24 14:23:18,273 - root - INFO - 📝 数据集配置文件已存在: configs/data.yaml
+2025-06-24 14:23:18,274 - root - INFO - 📊 数据状态检查:
+2025-06-24 14:23:18,274 - root - INFO -    - 图像文件数量: 0
+2025-06-24 14:23:18,274 - root - INFO -    - 标注文件数量: 3
+2025-06-24 14:23:18,274 - root - WARNING - ⚠️ 未发现图像文件，请确保图像放在正确位置
+2025-06-24 14:23:18,274 - root - INFO - ✅ 发现标注文件
+2025-06-24 14:23:18,274 - root - INFO - ⏱️ 初始化总耗时: 2.8297 毫秒
+2025-06-24 14:23:18,274 - root - INFO - ✅ MedicalYOLO项目初始化完成
+2025-06-24 14:23:18,274 - root - INFO - 📋 用户指引已显示

@@ -121,7 +121,7 @@ def create_sample_configs():
 model: yolov8n.pt  # 预训练模型路径
 
 # 数据配置
-data: configs/dataset.yaml  # 数据集配置文件路径
+data: configs/data.yaml  # 数据集配置文件路径
 
 # 训练参数
 epochs: 100
@@ -178,7 +178,7 @@ names:
             logging.info(f"📝 训练配置文件已存在: {train_config_path}")
         
         # 写入数据集配置文件
-        dataset_config_path = config_dir / "dataset.yaml"
+        dataset_config_path = config_dir / "data.yaml"
         if not dataset_config_path.exists():
             with open(dataset_config_path, 'w', encoding='utf-8') as f:
                 f.write(dataset_config_content)
@@ -257,7 +257,7 @@ def print_detailed_user_guide(base_path):
    📁 将模型文件放入: {base_path}/models/pretrained/
 
 3️⃣ 【必需】配置文件设置
-   ⚙️ 编辑配置文件: {base_path}/configs/dataset.yaml
+   ⚙️ 编辑配置文件: {base_path}/configs/data.yaml
       - 修改类别数量 (nc)
       - 修改类别名称 (names)
       - 确认数据路径正确

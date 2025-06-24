@@ -1,0 +1,10 @@
+names:
+- glioma_tumor
+- meningioma_tumor
+- objects
+- pituitary_tumor
+nc: 4
+path: /home/wyh_home/MedicalYOLO/data
+test: test/images
+train: train/images
+val: val/images
