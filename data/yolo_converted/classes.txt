@@ -1,4 +1,0 @@
-objects
-glioma_tumor
-meningioma_tumor
-pituitary_tumor
