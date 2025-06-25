@@ -2,6 +2,7 @@
 数据转换命令行接口
 """
 import argparse
+from datetime import datetime
 import sys
 import logging
 from pathlib import Path
@@ -17,12 +18,14 @@ from scripts.data_processing.utils import read_json_file
 def setup_logging(verbose: bool = False):
     """设置日志配置"""
     level = logging.DEBUG if verbose else logging.INFO
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_filename = f'logging/data_conversion/data_conversion_{timestamp}.log'
     logging.basicConfig(
         level=level,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler('data_conversion.log')
+            logging.FileHandler(log_filename)
         ]
     )
 
@@ -64,7 +67,7 @@ def main():
     
     parser.add_argument(
         '-i', '--input',
-        default='../../../data/raw/annotations',
+        default='data/raw/annotations',
         help='输入数据路径(默认: data/raw/annotations)'
     )
     
@@ -174,11 +177,18 @@ def main():
         
         print(f"\n✅ 输出目录: {args.output}")
         
-        # 清理临时文件
         if 'temp_dir' in result:
-            from scripts.data_processing.utils import cleanup_temp_directory
-            cleanup_temp_directory(result['temp_dir'])
-            print("🧹 临时文件已清理")
+            from pathlib import Path
+            temp_dir = Path(result['temp_dir'])
+            output_dir = Path(args.output)
+            output_dir.mkdir(parents=True, exist_ok=True)
+            moved = 0
+            for txt_file in temp_dir.glob('*.txt'):
+                target = output_dir / txt_file.name
+                txt_file.replace(target)
+                moved += 1
+            print(f"📁 已移动 {moved} 个标签文件到 {output_dir}")
+            # 不要清理 temp_dir，等分割后再清理
         
         logger.info(f"转换完成: {args.conversion_type}")
         

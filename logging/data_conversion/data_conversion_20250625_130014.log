@@ -1,0 +1,4 @@
+2025-06-25 13:00:14,059 - scripts.data_processing.core.data_converter - INFO - 开始执行 coco_to_yolo 转换
+2025-06-25 13:00:14,059 - scripts.data_processing.converters.coco_to_yolo - INFO - 找到 3 个JSON文件
+2025-06-25 13:00:14,127 - scripts.data_processing.core.data_converter - INFO - 转换完成: coco_to_yolo
+2025-06-25 13:00:14,150 - __main__ - INFO - 转换完成: coco_to_yolo

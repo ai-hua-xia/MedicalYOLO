@@ -1,0 +1,28 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.8,
+    "val": 0.1,
+    "test": 0.1
+  },
+  "counts": {
+    "total": 880,
+    "train": 704,
+    "val": 88,
+    "test": 88
+  },
+  "results": {
+    "train": {
+      "images": 704,
+      "labels": 486
+    },
+    "val": {
+      "images": 88,
+      "labels": 56
+    },
+    "test": {
+      "images": 88,
+      "labels": 65
+    }
+  }
+}

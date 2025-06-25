@@ -1,0 +1,4 @@
+2025-06-25 13:01:43,892 - scripts.data_processing.core.dataset_splitter - INFO - train 集: 704 图像, 486 标签
+2025-06-25 13:01:43,916 - scripts.data_processing.core.dataset_splitter - INFO - val 集: 88 图像, 56 标签
+2025-06-25 13:01:43,942 - scripts.data_processing.core.dataset_splitter - INFO - test 集: 88 图像, 65 标签
+2025-06-25 13:01:43,969 - __main__ - INFO - 数据集分割完成

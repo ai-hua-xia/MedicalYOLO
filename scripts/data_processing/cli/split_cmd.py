@@ -2,10 +2,12 @@
 数据集分割命令行接口
 """
 import argparse
+import shutil
 import sys
 import logging
 from pathlib import Path
 from typing import List
+from datetime import datetime
 
 # 添加项目根目录到路径
 project_root = Path(__file__).parent.parent.parent.parent
@@ -14,15 +16,43 @@ sys.path.insert(0, str(project_root))
 from scripts.data_processing.core import DatasetSplitter
 from scripts.data_processing.utils import read_classes_file
 
+def clean_previous_split(output_dir: Path):
+    """清理旧的划分目录和 configs/data.yaml 文件"""
+    for sub in ['train', 'val', 'test']:
+        sub_dir = output_dir / sub
+        if sub_dir.exists():
+            shutil.rmtree(sub_dir)
+            print(f"🧹 已删除目录: {sub_dir}")
+    yaml_file = Path("configs/data.yaml")
+    if yaml_file.exists():
+        yaml_file.unlink()
+        print(f"🧹 已删除配置文件: {yaml_file}")
+
+def write_data_yaml(output_dir: Path, class_names: list):
+    yaml_file = Path("configs/data.yaml")  # 固定输出到 configs/data.yaml
+    yaml_content = f"""path: {output_dir.resolve()}
+train: {output_dir.resolve() / 'train/images'}
+val: {output_dir.resolve() / 'val/images'}
+test: {output_dir.resolve() / 'test/images'}
+nc: {len(class_names)}
+names: {class_names}
+"""
+    yaml_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(yaml_file, 'w', encoding='utf-8') as f:
+        f.write(yaml_content)
+    print(f"📄 已生成配置文件: {yaml_file}")
+
 def setup_logging(verbose: bool = False):
     """设置日志配置"""
     level = logging.DEBUG if verbose else logging.INFO
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_filename = f'logging/dataset_split/dataset_split_{timestamp}.log'
     logging.basicConfig(
         level=level,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
             logging.StreamHandler(),
-            logging.FileHandler('dataset_split.log')
+            logging.FileHandler(log_filename)
         ]
     )
 
@@ -59,19 +89,19 @@ def main():
     
     parser.add_argument(
         '-i', '--input',
-    default='../../../data/labels',
-    help='输入标签路径 (默认: data/labels(临时目录))'
-    )
-    
-    parser.add_argument(
-    '--images',
     default='data/raw/images',
     help='输入图片路径 (默认: data/raw/images)'
     )
     
     parser.add_argument(
+    '--labels',
+    default='data/labels',
+    help='标签文件目录 (默认: data/labels)'
+    )
+    
+    parser.add_argument(
         '-o', '--output',
-    default='../../../data',
+    default='data',
     help='输出根路径 (默认: data)'
     )
     
@@ -176,12 +206,13 @@ def main():
                       f"训练={counts['train']}, 验证={counts['val']}, 测试={counts['test']}")
         else:
             results = splitter.split_by_ratio(
-                args.input,
-                args.output,
-                args.train,
-                args.val,
-                args.test,
-                args.image_extensions
+                data_dir=args.input,
+                labels_dir=args.labels,
+                output_dir=args.output,
+                train_ratio=args.train,
+                val_ratio=args.val,
+                test_ratio=args.test,
+                image_extensions=args.image_extensions
             )
             
             print(f"\n📊 分割结果:")
@@ -233,6 +264,39 @@ def main():
                     print(f"     └── labels/ ({label_count} 文件)")
                 else:
                     print(f"   {item.name}")
+        
+        # 获取类别名
+        class_names = []
+        if args.classes:
+            try:
+                class_names = read_classes_file(args.classes)
+            except Exception as e:
+                print(f"⚠️  无法读取类别文件: {e}")
+        if not class_names:
+            # 自动查找
+            candidates = [
+                output_path / 'classes.txt',
+                output_path / 'labels' / 'classes.txt'
+            ]
+            for classes_file in candidates:
+                if classes_file.exists():
+                    class_names = read_classes_file(str(classes_file))
+                    print(f"📋 从 {classes_file} 读取类别")
+                    break
+            if not class_names:
+                print("⚠️  未找到类别文件，使用默认类别名称")
+                class_names = ['class_0', 'class_1']
+
+        write_data_yaml(output_path, class_names)
+        
+        # 清理标签目录
+        labels_dir = Path(args.labels)
+        if labels_dir.exists():
+            try:
+                shutil.rmtree(labels_dir)
+                print(f"🧹 已删除标签目录: {labels_dir}")
+            except Exception as e:
+                print(f"⚠️ 删除标签目录失败: {e}")
         
         logger.info("数据集分割完成")
         

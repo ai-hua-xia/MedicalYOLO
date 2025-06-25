@@ -1,10 +1,6 @@
-names:
-- glioma_tumor
-- meningioma_tumor
-- objects
-- pituitary_tumor
-nc: 4
 path: /home/wyh_home/MedicalYOLO/data
-test: test/images
-train: train/images
-val: val/images
+train: /home/wyh_home/MedicalYOLO/data/train/images
+val: /home/wyh_home/MedicalYOLO/data/val/images
+test: /home/wyh_home/MedicalYOLO/data/test/images
+nc: 4
+names: ['objects', 'glioma_tumor', 'meningioma_tumor', 'pituitary_tumor']

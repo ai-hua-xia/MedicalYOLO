@@ -25,6 +25,7 @@ class DatasetSplitter:
                       train_ratio: float = 0.8,
                       val_ratio: float = 0.1,
                       test_ratio: float = 0.1,
+                      labels_dir: str = "data/labels",  # 新增参数
                       image_extensions: List[str] = None) -> Dict[str, int]:
         """
         按比例分割数据集
@@ -82,6 +83,8 @@ class DatasetSplitter:
         
         results = {}
         
+        labels_root = Path(labels_dir)
+        
         for split_name, files in splits.items():
             if not files:
                 continue
@@ -103,7 +106,7 @@ class DatasetSplitter:
                 copied_images += 1
                 
                 # 查找对应的标签文件
-                label_file = img_file.parent / (img_file.stem + '.txt')
+                label_file = labels_root / (img_file.stem + '.txt')
                 if label_file.exists():
                     dst_label = labels_dir / label_file.name
                     shutil.copy2(label_file, dst_label)
