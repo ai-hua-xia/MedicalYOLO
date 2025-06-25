@@ -1,8 +1,16 @@
 import os
+import sys
 import argparse
 import logging
 from pathlib import Path
-from dataset_validation import (
+
+# 获取当前脚本所在目录的父目录 (即项目根目录)
+project_root = Path(__file__).resolve().parent.parent
+
+# 将根目录添加到系统路径
+sys.path.append(str(project_root))
+
+from utils.dataset_validation import (
     verify_dataset_config,
     verify_split_uniqueness,
     delete_invalid_files
