@@ -144,7 +144,7 @@ def verify_split_uniqueness(yaml_path: Path, current_logger: logging.Logger) -> 
         for name, splits in duplicates.items():
             current_logger.error(f"图片 {name} 同时出现在 {splits}")
         return False
-    current_logger.info("train/val/test 分割唯一性验证通过！")
+    current_logger.info("train/val/test 数据集划分唯一性验证通过！")
     return True
 
 def delete_invalid_files(invalid_data_list: list, current_logger: logging.Logger):

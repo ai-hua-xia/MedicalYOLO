@@ -52,8 +52,12 @@ def main():
     if not passed:
         if args.delete_invalid and invalid_data:
             logger.warning("即将删除所有不合法的图片和标签文件...")
-            delete_invalid_files(invalid_data, logger)
-            logger.info("不合法文件已删除。")
+            confirm = input("⚠️ 检测到不合法文件，是否确认删除？(y/N): ").strip().lower()
+            if confirm in ['y', 'yes']:
+                delete_invalid_files(invalid_data, logger)
+                logger.info("不合法文件已删除。")
+            else:
+                logger.info("用户取消了自动删除操作，未删除任何文件。")
         else:
             logger.info("未启用自动删除，请手动处理不合法文件。")
 
