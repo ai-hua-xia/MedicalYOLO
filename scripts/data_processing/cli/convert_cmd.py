@@ -60,9 +60,10 @@ def main():
     )
     
     parser.add_argument(
-        'conversion_type',
+        '--conversion_type',
         choices=['coco_to_yolo', 'pascal_to_yolo', 'labelme_to_yolo'],
-        help='转换类型'
+        default='coco_to_yolo',
+        help='转换类型(默认: coco_to_yolo)'
     )
     
     parser.add_argument(
