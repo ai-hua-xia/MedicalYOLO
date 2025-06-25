@@ -45,7 +45,7 @@ def main():
         logger.warning(f"数据集基础验证未通过，共 {len(invalid_data)} 个问题样本。")
         if args.delete_invalid and invalid_data:
             logger.warning("即将删除所有不合法的图片和标签文件...")
-            # delete_invalid_files(invalid_data, logger)
+            delete_invalid_files(invalid_data, logger)
             logger.info("不合法文件已删除。")
         else:
             logger.info("未启用自动删除，请手动处理不合法文件。")
