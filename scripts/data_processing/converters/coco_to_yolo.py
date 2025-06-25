@@ -97,10 +97,6 @@ class CocoToYoloConverter(BaseConverter):
         output_path = Path(output_path)
         output_path.mkdir(parents=True, exist_ok=True)
         print(f"📁 创建输出目录: {output_path}")
-        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        temp_dir = output_path / f"temp_{timestamp}"
-        temp_dir.mkdir(exist_ok=True)
-        print(f"📁 创建临时目录: {temp_dir}")
         try:
             json_files = list(Path(input_path).glob("*.json"))
             self.logger.info(f"找到 {len(json_files)} 个JSON文件")
@@ -116,11 +112,10 @@ class CocoToYoloConverter(BaseConverter):
             self.class_names = list(category_mapping.keys())
             print(f"🏷️  类别顺序: {self.class_names}")
             print(f"🔄 开始转换标注...")
-            converted_files = []
+            converted_files = set()
             converted_annotations = 0
-            for i, annotation in enumerate(coco_data['annotations'], 1):
-                if i % 100 == 0 or i == len(coco_data['annotations']):
-                    print(f"   进度: [{i}/{len(coco_data['annotations'])}] 标注已处理")
+            imgid_to_lines = {img_id: [] for img_id in image_info}
+            for annotation in coco_data['annotations']:
                 image_id = annotation['image_id']
                 if image_id not in image_info:
                     continue
@@ -129,16 +124,22 @@ class CocoToYoloConverter(BaseConverter):
                 img_width = img_info['width']
                 img_height = img_info['height']
                 txt_filename = Path(img_filename).stem + '.txt'
-                txt_path = temp_dir / txt_filename
                 bbox = annotation['bbox']
                 yolo_bbox = self._convert_bbox_to_yolo(bbox, img_width, img_height)
                 category_id = annotation['category_id']
-                with open(txt_path, 'a', encoding='utf-8') as f:
-                    line = f"{category_id} {' '.join(map(str, yolo_bbox))}\n"
-                    f.write(line)
-                if txt_filename not in converted_files:
-                    converted_files.append(txt_filename)
+                line = f"{category_id} {' '.join(map(str, yolo_bbox))}\n"
+                imgid_to_lines[image_id].append(line)
                 converted_annotations += 1
+                converted_files.add(txt_filename)
+            # 直接在输出目录生成txt（无目标则为空）
+            for img in coco_data['images']:
+                img_filename = img['file_name']
+                txt_filename = Path(img_filename).stem + '.txt'
+                txt_path = output_path / txt_filename
+                lines = imgid_to_lines.get(img['id'], [])
+                with open(txt_path, 'w', encoding='utf-8') as f:
+                    f.writelines(lines)
+                converted_files.add(txt_filename)
             # 保存类别名称文件
             classes_file = output_path / 'classes.txt'
             with open(classes_file, 'w', encoding='utf-8') as f:
@@ -146,11 +147,10 @@ class CocoToYoloConverter(BaseConverter):
                     f.write(f"{class_name}\n")
             print(f"💾 保存类别文件: {classes_file}")
             result = {
-                'temp_dir': str(temp_dir),
-                'converted_files': converted_files,
+                'converted_files': list(converted_files),
                 'class_names': self.class_names,
                 'total_annotations': len(coco_data['annotations']),
-                'total_images': len(set(ann['image_id'] for ann in coco_data['annotations'])),
+                'total_images': len(coco_data['images']),
                 'converted_annotations': converted_annotations,
                 'converted_label_files': len(converted_files)
             }
@@ -158,7 +158,4 @@ class CocoToYoloConverter(BaseConverter):
             return result
         except Exception as e:
             print(f"❌ 转换过程中发生错误: {e}")
-            if temp_dir.exists():
-                shutil.rmtree(temp_dir)
-                print(f"🧹 已清理临时目录: {temp_dir}")
             raise e

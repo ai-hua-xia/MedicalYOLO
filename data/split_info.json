@@ -14,15 +14,15 @@
   "results": {
     "train": {
       "images": 704,
-      "labels": 486
+      "labels": 704
     },
     "val": {
       "images": 88,
-      "labels": 56
+      "labels": 88
     },
     "test": {
       "images": 88,
-      "labels": 65
+      "labels": 88
     }
   }
 }
