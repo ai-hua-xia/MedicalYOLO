@@ -16,8 +16,10 @@ import json
 
 import yaml
 import logging
+import sys
 from pathlib import Path
-from utils import CONFIGS_DIR  # 假设 CONFIGS_DIR 在这里被正确导入并保证其正确性
+
+from utils.paths import CONFIGS_DIR  # 假设 CONFIGS_DIR 在这里被正确导入并保证其正确性
 
 # 常见图片文件扩展名列表，可以根据需要扩展
 COMMON_IMAGE_EXTENSIONS = ['*.jpg', '*.jpeg', '*.png', '*.tif', '*.tiff', '*.bmp', '*.webp']

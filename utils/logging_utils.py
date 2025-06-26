@@ -78,20 +78,31 @@ def setup_logger(base_path: Path, log_type: str = "general",
     logger.info("日志记录器初始化成功".center(60, "="))
     return logger
 
-def log_parameter(args, exclude_parms, logger):
+def log_parameters(args, exclude_params=None, logger=None):
     """
-    记录命令行参数和YAML参数信息
-    :param args:
-    :param exclude_parms:
-    :param logger:
-    :return:
+    记录命令行和YAML参数信息，返回结构化字典。
+
+    Args:
+        args: 命令行参数 (Namespace 对象)
+        exclude_params: 不记录的参数键列表
+        logger: 日志记录器实例
+
+    Returns:
+        dict: 参数字典
     """
+    if logger is None:
+        logger = logging.getLogger("YOLO_Training")
+    if exclude_params is None:
+        exclude_params = ['log_encoding', 'use_yaml', 'log_level', 'extra_args']
+    logger.info("开始模型参数信息".center(40, "="))
+    logger.info("Parameters")
+    logger.info("-" * 40)
     params_dict = {}
     for key, value in vars(args).items():
-        if key not in exclude_parms and not key.endswith("_specified"):
+        if key not in exclude_params and not key.endswith('_specified'):
             source = '命令行' if getattr(args, f"{key}_specified", False) else 'YAML'
-            logger.info(f"{key:<20}: {value} [来源 {source}]")
-            params_dict[key] = value
+            logger.info(f"{key:<20}: {value} （来源: [{source}]）")
+            params_dict[key] = {"value": value, "source": source}
     return params_dict
 
 def rename_log_file(logger_obj, save_dir, model_name, encoding="utf-8"):
