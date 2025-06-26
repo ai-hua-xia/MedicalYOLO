@@ -1,63 +1,89 @@
-import os
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+"""
+@FileName : yolo_train.py
+@Time     : 2025/6/26 13:00:05
+@Author   : 雨滴同学
+@Project  : BTD
+@Function : 训练脚本的入口,集成utils模块
+"""
 import logging
-from datetime import datetime
-import shutil
 from ultralytics import YOLO
-import yaml
+import argparse
 from pathlib import Path
+import sys
 
-def setup_logging(base_path, log_type='train', temp_log=True):
-    log_dir = Path(base_path) / 'logging' / log_type
-    log_dir.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file_name = f'temp-{timestamp}-{log_type}.log' if temp_log else f'{log_type}{timestamp}.log'
-    log_file_path = log_dir / log_file_name
-    logging.basicConfig(filename=log_file_path, level=logging.INFO, encoding='utf-8-sig',
-                        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    return log_file_path
+current_path = Path(__file__).parent.parent.resolve()
+utils_path = current_path / 'utils'
+if str(current_path) not in sys.path:
+    sys.path.insert(0, str(current_path))
+if str(utils_path) not in sys.path:
+    sys.path.insert(1, str(utils_path))
 
-def load_model_and_config(base_path, model_name='yolov8n.pt', data_yaml='configs/data.yaml', epochs=50, batch=16, imgsz=640, lr0=0.01, device=''):
-    model_path = Path(base_path) / 'models/pretrained' / model_name
-    if not model_path.exists():
-        logging.info(f"Model {model_name} not found. Downloading...")
-        model = YOLO(model_name)
-    else:
-        model = YOLO(str(model_path))
-    data_yaml_path = Path(base_path) / data_yaml
-    with open(data_yaml_path, 'r') as f:
-        data_config = yaml.safe_load(f)
-    return model, data_config
+from utils.logging_utils import setup_logger
+from utils.performance_utils import time_it
+from utils.paths import LOGS_DIR, CHECKPOINTS_DIR, PRETRAINED_DIR
+from utils.config_utils import load_config, merge_configs
 
-def train_model(model, data_config, base_path, epochs=50, batch=16, imgsz=640, lr0=0.01, device=''):
-    results = model.train(data=str(Path(base_path) / 'configs/data.yaml'), epochs=epochs, batch=batch, imgsz=imgsz, lr0=lr0, device=device)
-    return results
+def parse_args():
+    """命名行解析参数"""
+    parser = argparse.ArgumentParser(description="YOLO 模型训练")
+    parser.add_argument("--data", type=str, default="data.yaml", help="yaml配置文件路径")
+    parser.add_argument("--batch", type=int, default=16, help="训练批次大小")
+    parser.add_argument("--epochs", type=int, default=2, help="训练轮数")
+    parser.add_argument("--imgsz", type=int, default=640, help="训练图片尺寸")
+    parser.add_argument("--device", type=str, default="0", help="训练设备")
+    parser.add_argument("--weights", type=str, default="yolo11n.pt", help="预训练模型路径")
+    parser.add_argument("--workers", type=int, default=8, help="训练数据加载线程数")
+    # 自定义参数
+    parser.add_argument("--use_yaml", type=bool, default=True, help="使用yaml配置文件")
+    return parser.parse_args()
 
-def save_model_weights(results, base_path):
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    best_weight_path = results[0].best
-    last_weight_path = results[0].last
-    checkpoints_dir = Path(base_path) / 'models/checkpoints'
-    checkpoints_dir.mkdir(parents=True, exist_ok=True)
-    best_weight_destination = checkpoints_dir / f'trainN-{timestamp}-yolov8n-best.pt'
-    last_weight_destination = checkpoints_dir / f'trainN-{timestamp}-yolov8n-last.pt'
-    shutil.copy(best_weight_path, best_weight_destination)
-    shutil.copy(last_weight_path, last_weight_destination)
-    logging.info(f"Saved best weights to {best_weight_destination}")
-    logging.info(f"Saved last weights to {last_weight_destination}")
+def run_training(model, yolo_args):
+    result = model.train(**vars(yolo_args))
+    return result
 
-def yolo_train():
-    base_path = 'MedicalYOLO'
-    log_file_path = setup_logging(base_path)
-    model, data_config = load_model_and_config(base_path)
-    logging.info("Training started")
-    results = train_model(model, data_config, base_path)
-    save_model_weights(results, base_path)
-    logging.info(f"Training results: mAP@50={results[0].metrics.box.map50}, mAP@50:95={results[0].metrics.box.map}")
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    new_log_file_name = f'trainN-{timestamp}-yolov8n.log'
-    new_log_file_path = Path(base_path) / 'logging' / 'train' / new_log_file_name
-    os.rename(log_file_path, new_log_file_path)
-    logging.info(f"Log renamed: {new_log_file_name}")
+def main(args):
+    logger = logging.getLogger("YOLO_Training")
+    logger.info("YOLO 肿瘤检测训练脚本启动".center(80, "="))
+    try:
+        yaml_config = {}
+        if args.use_yaml:
+            yaml_config = load_config(config_type='train')
+
+        # 合并参数
+        yolo_args, project_args = merge_configs(
+            mode='train',
+            args=args,
+            yaml_config=yaml_config,
+            use_yaml=getattr(args, "use_yaml", True)
+        )
+
+        # 初始化模型,开始执行训练
+        logger.info(f"初始化模型,加载权重: {project_args.weights}")
+        model_path = PRETRAINED_DIR / project_args.weights
+        if not model_path.exists():
+            logger.info(f"模型文件不存在: {model_path},请将{project_args.weights}放入到{PRETRAINED_DIR}")
+            raise ValueError(f"模型文件不存在: {model_path}")
+        model = YOLO(model_path)
+
+        # 动态引用 time_it 装饰器
+        decorated_run_training = time_it(repeat_times=1, logger_instance=logger)(run_training)
+        results = decorated_run_training(model, yolo_args)
+
+        logger.info("YOLO 肿瘤检测训练脚本结束".center(80, "="))
+    except Exception as e:
+        logger.error(f"参数合并或训练异常: {e}")
+        return
 
 if __name__ == "__main__":
-    yolo_train()
+    args_ = parse_args()
+    logger = setup_logger(
+        base_path=LOGS_DIR,
+        log_type="train",
+        model_name=args_.weights.replace(".pt", ""),
+        log_level=logging.INFO,
+        temp_log=False,
+        logger_name="YOLO_Training"
+    )
+    main(args_)

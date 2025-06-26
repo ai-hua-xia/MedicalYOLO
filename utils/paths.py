@@ -32,6 +32,12 @@ TEMP_DIR = PROJECT_ROOT / "temp"
 # 运行文件目录
 RUNS_DIR = PROJECT_ROOT / "runs"
 
+# 检查点目录
+CHECKPOINTS_DIR = MODELS_DIR / "checkpoints"
+
+# 预训练模型目录
+PRETRAINED_DIR = MODELS_DIR / "pretrained"
+
 # 确保关键目录存在
-for directory in [LOGS_DIR, DATA_DIR, MODELS_DIR, CONFIGS_DIR, OUTPUT_DIR, TEMP_DIR, RUNS_DIR]:
+for directory in [LOGS_DIR, DATA_DIR, MODELS_DIR, CONFIGS_DIR, OUTPUT_DIR, TEMP_DIR, RUNS_DIR, CHECKPOINTS_DIR, PRETRAINED_DIR]:
     directory.mkdir(parents=True, exist_ok=True)
