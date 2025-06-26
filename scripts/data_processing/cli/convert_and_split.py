@@ -8,7 +8,7 @@ def main():
     convert_cmd = [
         sys.executable,
         str(project_root / "scripts/data_processing/cli/convert_cmd.py"),
-        "coco_to_yolo",
+        "--conversion_type", "coco_to_yolo",
         "-i", "data/raw/annotations",
         "-o", "data/labels"
     ]
