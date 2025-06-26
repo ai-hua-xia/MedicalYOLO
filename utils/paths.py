@@ -21,7 +21,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 MODELS_DIR = PROJECT_ROOT / "models"
 
 # 配置文件目录
-CONFIG_DIR = PROJECT_ROOT / "configs"
+CONFIGS_DIR = PROJECT_ROOT / "configs"
 
 # 输出结果目录
 OUTPUT_DIR = PROJECT_ROOT / "output"
@@ -29,6 +29,9 @@ OUTPUT_DIR = PROJECT_ROOT / "output"
 # 临时文件目录
 TEMP_DIR = PROJECT_ROOT / "temp"
 
+# 运行文件目录
+RUNS_DIR = PROJECT_ROOT / "runs"
+
 # 确保关键目录存在
-for directory in [LOGS_DIR, DATA_DIR, MODELS_DIR, CONFIG_DIR, OUTPUT_DIR, TEMP_DIR]:
+for directory in [LOGS_DIR, DATA_DIR, MODELS_DIR, CONFIGS_DIR, OUTPUT_DIR, TEMP_DIR, RUNS_DIR]:
     directory.mkdir(parents=True, exist_ok=True)

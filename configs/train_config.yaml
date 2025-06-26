@@ -2,10 +2,10 @@
 # 请根据你的实际需求修改以下参数
 
 # 模型配置
-model: yolov8n.pt  # 预训练模型路径
+model: models/pretrained/yolov811n.pt  # 预训练模型路径
 
 # 数据配置
-data: configs/dataset.yaml  # 数据集配置文件路径
+data: configs/data.yaml  # 数据集配置文件路径
 
 # 训练参数
 epochs: 100
