@@ -3,7 +3,7 @@ from pathlib import Path
 import sys
 
 sys.path.append(str(Path(__file__).parent.parent))
-from utils.rename_log_utils import rename_log_file
+from utils.logging_utils import rename_log_file
 
 # 日志初始化（模拟 setup_logging，生成临时日志文件）
 LOG_DIR = Path(__file__).parent.parent / "logging" / "load_yaml"

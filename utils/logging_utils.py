@@ -78,6 +78,84 @@ def setup_logger(base_path: Path, log_type: str = "general",
     logger.info("日志记录器初始化成功".center(60, "="))
     return logger
 
+def log_parameter(args, exclude_parms, logger):
+    """
+    记录命令行参数和YAML参数信息
+    :param args:
+    :param exclude_parms:
+    :param logger:
+    :return:
+    """
+    params_dict = {}
+    for key, value in vars(args).items():
+        if key not in exclude_parms and not key.endswith("_specified"):
+            source = '命令行' if getattr(args, f"{key}_specified", False) else 'YAML'
+            logger.info(f"{key:<20}: {value} [来源 {source}]")
+            params_dict[key] = value
+    return params_dict
+
+def rename_log_file(logger_obj, save_dir, model_name, encoding="utf-8"):
+    """
+    主要实现日志的重命名,如train1, train2, train3....
+    :param logger_obj: 日志记录器
+    :param save_dir: 训练输出目录
+    :param model_name: 模型名
+    :param encoding: 文件编码
+    :return: 新日志文件路径或None
+    """
+    for handler in list(logger_obj.handlers):
+        if isinstance(handler, logging.FileHandler):
+            old_log_file = Path(handler.baseFilename)
+            # 解析时间戳
+            timestamp = ""
+            # 支持 temp-20250626-153000-xxx.log 或 xxx_20250626-153000.log
+            if "-" in old_log_file.stem:
+                timestamp_parts = old_log_file.stem.split("-")
+                if len(timestamp_parts) >= 3 and timestamp_parts[0] == "temp":
+                    timestamp = f"{timestamp_parts[1]}-{timestamp_parts[2]}"
+                else:
+                    timestamp = "-".join(timestamp_parts[1:3]) if len(timestamp_parts) > 2 else timestamp_parts[-1]
+            elif "_" in old_log_file.stem:
+                timestamp_parts = old_log_file.stem.split("_")
+                if len(timestamp_parts) > 1:
+                    timestamp = timestamp_parts[1]
+            else:
+                logger_obj.warning(
+                    f"无法从日志文件名({old_log_file.name})中获取时间戳, "
+                    f"请检查日志文件名是否正确"
+                )
+                continue
+            train_prefix = Path(save_dir).name
+            new_log_file = old_log_file.parent / f"{train_prefix}_{timestamp}_{model_name}.log"
+
+            # 关闭旧的日志处理器
+            handler.close()
+            logger_obj.removeHandler(handler)
+
+            if old_log_file.exists():
+                try:
+                    old_log_file.rename(new_log_file)
+                    logger_obj.info(f"日志文件已经重命名成功: {new_log_file}")
+                except OSError as e:
+                    logger_obj.error(f"日志文件重命名失败: {e}")
+                    # 恢复旧处理器，保证日志不中断
+                    re_added_handler = logging.FileHandler(old_log_file, encoding=encoding)
+                    re_added_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+                    logger_obj.addHandler(re_added_handler)
+                    return old_log_file
+            else:
+                logger_obj.warning(f"尝试重命名的日志文件不存在: {old_log_file}")
+                continue
+
+            # 命名成功处理方案
+            new_handler = logging.FileHandler(new_log_file, encoding=encoding)
+            new_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+            logger_obj.addHandler(new_handler)
+            break
+    else:
+        logger_obj.warning("未找到 FileHandler，无法重命名日志文件。")
+        return None
+    return new_log_file
 
 if __name__ == "__main__":
     import sys
