@@ -12,6 +12,24 @@ import yaml
 import sys
 import copy
 from pathlib import Path
+# from datetime import datetime
+
+# # 日志目录和文件设置
+# LOG_DIR = Path(__file__).parent.parent / "logging" / "load_yaml"
+# LOG_DIR.mkdir(parents=True, exist_ok=True)
+# LOG_FILE = LOG_DIR / "config_utils.log"
+
+# # 配置日志
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format="%(asctime)s [%(levelname)s] %(message)s",
+#     handlers=[
+#         logging.FileHandler(LOG_FILE, encoding='utf-8'),
+#         logging.StreamHandler(sys.stdout)
+#     ]
+# )
+
+# logger = logging.getLogger(__name__)
 
 sys.path.append(str(Path(__file__).parent.parent))
 
@@ -207,7 +225,3 @@ def merge_configs(
             raise ValueError(f"data 文件不存在: {project_args.data}")
 
     return yolo_args, project_args
-
-if __name__ == '__main__':
-    # 示例：加载train配置
-    config = load_config(config_type="train")
